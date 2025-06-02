@@ -29,8 +29,13 @@ let struct = {
     getName2() {return this.name;}
 }
 
-console.log(struct.getName1());
-console.log(struct.getName2());
+let abc = new Number('123')
+parseInt()
+
+console.log(String('abc'));
+console.log(typeof abc);
+console.log('abc' === abc);
+
 
 
 
