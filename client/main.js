@@ -7,8 +7,4 @@ const A = "AAA";
 
 
 
-
-
-
-
 const b = "aaa";

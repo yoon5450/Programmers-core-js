@@ -6,4 +6,6 @@
 
 ---
 
-자바스크립트로 연습한 내용을 업데이트하는 저장소입니다.
+## Document Object Modal
+
+web API가 가지고 있는 DOM 속성에 대해 학습합니다.
