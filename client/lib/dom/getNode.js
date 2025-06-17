@@ -1,4 +1,5 @@
 
+
 /**
  * 입력한 선택자에 해당하는 DOM 요소를 반환합니다.
  * 
@@ -11,16 +12,19 @@
  * const li = getNode('li','.navigation');
  */
 
-function getNode(node, context = document){
-    // 재귀로 처리
-    if(context.nodeType !== 9) context = getNode(context);
 
-    return context.querySelector(node);
+export function getNode(node,context = document){
+
+  if(context.nodeType !== 9) context = getNode(context);
+
+  return context.querySelector(node);
 }
 
-function getNodes(node, context = document){
-    // 재귀로 처리
-    if(context.nodeType !== 9) context = getNode(context);
 
-    return context.querySelectorAll(node);
+function getNodes(node,context = document){
+
+  if(context.nodeType !== 9) context = getNode(context);
+
+  return context.querySelectorAll(node);
 }
+

@@ -2,21 +2,6 @@ import js from "@eslint/js";
 import globals from "globals";
 import { defineConfig } from "eslint/config";
 
-const types = {
-  isObject:true,
-  isArray:true,
-  isNull:true,
-  isString:true
-}
-
-const lib = {
-  getNode:true,
-  attr:true,
-  css:true,
-  insertLast:true
-}
-
-
 export default defineConfig([
   {
     files: ["**/*.{js,mjs,cjs}"],
@@ -29,13 +14,11 @@ export default defineConfig([
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...types,
-        ...lib,
         gsap:true
       }
     },
     rules:{
-      "no-unsed-vars": 1,
+      "no-unused-vars": 1,
     },
   },
 ]);
