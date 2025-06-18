@@ -1,60 +1,13 @@
-.first {
-  background-color: red;
-}
-
-span {
-  display: inline-block;
-}
-
-.space {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  div {
-    position: absolute;
-  }
-}
-
-.circle {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: dodgerblue;
-}
-
-.ground {
-  width: 400px;
-  height: 300px;
-  border: 5px solid black;
+h1{
   position: absolute;
   left: 50%;
   top: 50%;
-  translate: -50% -50%;
-  background-color: rgb(24, 110, 24);
-}
+  translate:-50% -50%;
 
-.ball {
-  display: inline-block;
-  transition: all 0.3s;
-  pointer-events: none;
-}
-
-section {
-  background-color: dodgerblue;
-  padding: 2rem;
-  article {
-    background-color: hotpink;
-    padding: 2rem;
-    p {
-
-      background-color: aqua;
-      padding: 2rem;
-    }
+  span{
+    display: inline-block;
+    position: relative;
+    top: 0;
+    transition: all 1s;
   }
 }
