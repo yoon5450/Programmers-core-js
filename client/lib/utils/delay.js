@@ -1,21 +1,11 @@
-import { getNode } from "../dom/getNode.js";
 import { isNumber, isObject } from "./type.js";
+import { xhrPromise } from "./xhr.js";
 
-function delay(callback, timeout = 1000) {
+export function delay(callback, timeout = 1000) {
   setTimeout(callback, timeout);
 }
 
-let first = getNode(".first");
-let second = getNode(".second");
-
-delay(() => {
-  first.style.top = "-100px";
-  delay(() => {});
-  first.style.transition = "rotate(360deg)";
-});
-
 // object mixin
-
 const defaultOptions = {
   shouldRejected: false,
   data: "성공",
@@ -23,14 +13,14 @@ const defaultOptions = {
   timeout: 1000,
 };
 
-function delayP(options) {
+export function delayP(options) {
   let config = { ...defaultOptions };
 
   if (isNumber(options)) {
     config.timeout = options;
-  } 
-  
-  if(isObject(options)){
+  }
+
+  if (isObject(options)) {
     config = { ...defaultOptions, ...options };
   }
 
@@ -47,27 +37,35 @@ function delayP(options) {
   });
 }
 
-delayP({
-  data: "성공!!",
-  shouldRejected: false,
-  timeout: 1000,
-  errorMessage: "오류 발생!",
-});
+async function f() {
+  return 10;
+}
 
-delayP()
-  .then(() => {
-    first.style.top = "-100px";
-    second.style.top = "100px";
+const a = f();
 
-    return delayP();
-  })
-  .then(() => {
-    first.style.transform = "rotate(360deg)";
-    second.style.transform = "rotate(360deg)";
+a.then(await a);
 
-    return delayP();
-  })
-  .then(() => {
-    first.style.top = 0;
-    second.style.top = 0;
+async function delayA() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("성공");
+    }, 2000);
   });
+}
+
+async function ramen() {
+  const a = await delayP({ data: "물" });
+  console.log(a);
+
+  const b = await delayP({ data: "불켜기" });
+  console.log(b);
+
+  const c = await delayP({ data: "스프" });
+  console.log(c);
+}
+
+async function getData() {
+  const data = await xhrPromise.get("https://pokeapi.co/api/v2/pokemon/10/");
+  console.log(data);
+}
+

@@ -1,6 +1,4 @@
-import { configs } from "@eslint/js";
-
-const END_POINT = "https://jsonplaceholder.typicode.com/users";
+const END_POINT = "http://localhost:3000/posts";
 
 export function xhr({
   method = "GET",
@@ -126,8 +124,7 @@ const defaultOptions = {
   }
 }
 
-function xhrPromise(options = {}){
-
+export function xhrPromise(options = {}){
   const {method, url, headers, body, errorMessage:message} = {
     ...defaultOptions,
     ...options,
@@ -163,15 +160,8 @@ function xhrPromise(options = {}){
   })
 }
 
-
-xhrPromise({ url:END_POINT })
-.then((res)=>{
-  console.log( res );
-  
-})
-
 xhrPromise.get = (url) => xhrPromise({url});
 xhrPromise.post = (url,body) => xhrPromise({url,body,method:'POST'});
-xhrPromise.put = (url,body) =>  xhrPromise({url,body,method:'PUT'});
-xhrPromise.patch = (url,body) =>  xhrPromise({url,body,method:'PATCH'});
+xhrPromise.put = (url,body) => xhrPromise({url,body,method:'PUT'});
+xhrPromise.patch = (url,body) => xhrPromise({url,body,method:'PATCH'});
 xhrPromise.delete = (url) => xhrPromise({url,method:'DELETE'});
