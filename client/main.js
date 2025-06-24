@@ -1,11 +1,7 @@
-import {tiger} from './lib/utils/index.js';
-const END_POINT = "https://jsonplaceholder.typicode.com/users";
+import { } from './components/Button/Button.js';
 
 
-tiger.get(END_POINT).
-then((result) =>{
-    result.forEach(element => {
-        console.log(element.name);
-    });
-})
+
+
+
 
